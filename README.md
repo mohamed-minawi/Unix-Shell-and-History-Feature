@@ -9,8 +9,9 @@ To implement a shell interface, first let the parent process read what the user 
 Your shell should provide the following features.
 
 When the user enters exit, your shell should terminate.
-If the user entered & following the command, the child process runs in the background, the shell should not block and wait but rather continue accepting commands. However, a shell with forked child processes executing in the background must be able to tell and acknowledge when the child processes exit. Here is how you can do this: The shell would receive a signal from the OS as soon as the child exits. Consult the signal() or sigaction() man pages if needed. The signal the OS sends to notify a parent process that a child has exited is SIGCHLD. Thus, you must register a handler for SIGCHLD. You have seen signal handler registration with the system call signal() or sigaction() before.
-Your shell needs to support input and output redirection (using < and > symbols). See slides on pipes on how to do this. You may assume that the redirection symbols (<, >) are space separated from the other arguments.
+
+If the user entered & following the command, the child process runs in the background, the shell should not block and wait but rather continue accepting commands. However, a shell with forked child processes executing in the background must be able to tell and acknowledge when the child processes exit.
+
 Your shell should provide a history feature that allows the user to access the most recently entered commands. The user will be able to access up to 10 commands by using the feature. The commands will be consecutively numbered starting at 1The user will be able to list the command history by entering the command history at the mysh> prompt. As an example, assume that the history consists of the commands (from most to least recent): ps, ls -l, top, cal, who, date.
 The command history will output:
 
